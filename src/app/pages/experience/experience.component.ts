@@ -76,7 +76,7 @@ export class ExperienceComponent {
   readonly certifications: Certification[] = [
     {
       title: 'Frontend Development Specialization',
-      issuer: 'ETEC Center',
+      issuer: 'MIS',
       date: 'Jan 2026',
       category: 'Specializations',
       badgeLabel: 'Professional Certificate',
@@ -86,7 +86,7 @@ export class ExperienceComponent {
     },
     {
       title: 'Backend Development Specialization',
-      issuer: 'ETEC Center',
+      issuer: 'MIS',
       date: 'Jun 2026',
       category: 'Specializations',
       badgeLabel: 'Professional Certificate',
@@ -96,7 +96,7 @@ export class ExperienceComponent {
     },
     {
       title: 'Frontend Software Engineering Internship',
-      issuer: 'KRU IT Solution & ETEC Center',
+      issuer: 'MIS',
       date: 'Jul 2026',
       category: 'Internship',
       badgeLabel: 'Internship Certificate',
@@ -104,26 +104,26 @@ export class ExperienceComponent {
       desc: 'Successfully completed an intensive frontend software engineering internship, demonstrating team collaboration, real API integration, and UI/UX craftsmanship.',
       image: 'assets/certs/placeholder.svg',
     },
-    {
-      title: 'IT Engineering — Academic Transcript',
-      issuer: 'Royal University of Phnom Penh',
-      date: '2024 — 2028',
-      category: 'University',
-      badgeLabel: 'University Document',
-      tags: ['Data Structures', 'Databases', 'Software Engineering'],
-      desc: 'Official academic transcript covering core Information Technology Engineering coursework at RUPP, verified by the university registrar.',
-      image: 'assets/certs/placeholder.svg',
-    },
-    {
-      title: "Dean's List — Academic Excellence",
-      issuer: 'Royal University of Phnom Penh',
-      date: '2025',
-      category: 'University',
-      badgeLabel: 'Academic Honor',
-      tags: ['Top 10%', 'Academic Excellence', 'IT Engineering'],
-      desc: "Recognized on the Dean's List for outstanding academic performance among IT Engineering cohort peers.",
-      image: 'assets/certs/placeholder.svg',
-    },
+    // {
+    //   title: 'IT Engineering — Academic Transcript',
+    //   issuer: 'MIS',
+    //   date: '2024 — 2028',
+    //   category: 'University',
+    //   badgeLabel: 'University Document',
+    //   tags: ['Data Structures', 'Databases', 'Software Engineering'],
+    //   desc: 'Official academic transcript covering core Information Technology Engineering coursework at RUPP, verified by the university registrar.',
+    //   image: 'assets/certs/placeholder.svg',
+    // },
+    // {
+    //   title: "Dean's List — Academic Excellence",
+    //   issuer: 'Royal University of Phnom Penh',
+    //   date: '2025',
+    //   category: 'University',
+    //   badgeLabel: 'Academic Honor',
+    //   tags: ['Top 10%', 'Academic Excellence', 'IT Engineering'],
+    //   desc: "Recognized on the Dean's List for outstanding academic performance among IT Engineering cohort peers.",
+    //   image: 'assets/certs/placeholder.svg',
+    // },
   ];
 
   readonly certCategories: { label: 'All' | CertCategory; count: number }[] = [
