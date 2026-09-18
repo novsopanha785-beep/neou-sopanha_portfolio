@@ -1,0 +1,221 @@
+<section class="section">
+  <div class="container">
+    <div class="proj-head">
+      <div>
+        <span class="eyebrow">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="m12 2 9 5-9 5-9-5 9-5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m3 12 9 5 9-5M3 17l9 5 9-5" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          03 // Portfolio Repertory
+        </span>
+        <h1 class="page-title">Featured <span class="grad-text">Engineering Projects</span></h1>
+        <p class="page-sub">
+          {{ projects.length }} production web applications, Telegram Mini Apps, and
+          cloud-connected systems built with modern full-stack architectures.
+        </p>
+      </div>
+
+      <div class="proj-toggle">
+        <button type="button" [class.is-active]="viewMode() === 'all'" (click)="setViewMode('all')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/></svg>
+          All {{ projects.length }} Projects
+        </button>
+        <button type="button" [class.is-active]="viewMode() === 'flagship'" (click)="setViewMode('flagship')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2 9.5 9.5 2 12l7.5 2.5L12 22l2.5-7.5L22 12l-7.5-2.5z" fill="currentColor"/></svg>
+          Flagship Showcase
+        </button>
+      </div>
+    </div>
+
+    <div class="proj-toolbar card">
+      <div class="proj-search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input
+          type="text"
+          [placeholder]="'Search ' + projects.length + ' projects by title, tech (e.g. Laravel, Angular, KHQR)...'"
+          [value]="query()"
+          (input)="query.set($any($event.target).value)"
+        />
+      </div>
+
+      <div class="filters proj-filters">
+        @for (cat of categories; track cat.label) {
+          <button
+            type="button"
+            class="filters__btn"
+            [class.is-active]="activeCategory() === cat.label"
+            (click)="activeCategory.set(cat.label)"
+          >
+            {{ cat.label }}
+            <span>{{ cat.count }}</span>
+          </button>
+        }
+      </div>
+
+      <span class="proj-count"><i class="dot"></i> Showing {{ filteredProjects().length }} of {{ totalCount }} Projects</span>
+    </div>
+
+    <div class="projects-grid">
+      @for (project of filteredProjects(); track project.title) {
+        <article class="project-card card">
+          <div class="project-card__browserbar">
+            <div class="project-card__dots"><i></i><i></i><i></i></div>
+            <span class="project-card__url">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2"/></svg>
+              {{ project.domain }}
+            </span>
+            <span class="project-card__year">{{ project.year }}</span>
+          </div>
+
+          <div
+            class="project-card__cover"
+            [style.background]="project.image ? null : project.gradient"
+            (click)="openCaseStudy(project)"
+          >
+            @if (project.image) {
+              <img [src]="project.image" [alt]="project.title + ' preview'" class="project-card__cover-img" />
+            }            <span class="project-card__cat-badge">{{ project.category }}</span>
+            @if (project.isMiniApp) {
+              <span class="project-card__mini-badge">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor" stroke-width="2"/><path d="M11 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                Mini App
+              </span>
+            }
+            <button type="button" class="project-card__case-study" (click)="openCaseStudy(project); $event.stopPropagation()">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Deep Dive Case Study
+            </button>
+          </div>
+
+          <div class="project-card__body">
+            <div class="project-card__status-row">
+              <span class="project-card__status" [class]="'is-' + categorySlug(project.category)">
+                <i class="dot"></i>{{ project.category | uppercase }}
+              </span>
+              <span class="project-card__release">Release {{ project.year }}</span>
+            </div>
+
+            <h3>
+              {{ project.title }}
+              @if (project.demoUrl) {
+                <a [href]="project.demoUrl" target="_blank" rel="noopener" aria-label="Open live demo">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+              }
+            </h3>
+            <p class="project-card__subtitle">{{ project.subtitle }}</p>
+            <p class="project-card__desc" [class.is-expanded]="isExpanded(project.title)">{{ project.desc }}</p>
+
+            <div class="project-card__tags">
+              @for (tag of project.tags; track tag) {
+                <span>{{ tag }}</span>
+              }
+            </div>
+
+            <div class="project-card__foot">
+              @if (project.demoUrl) {
+                <a [href]="project.demoUrl" target="_blank" rel="noopener" class="project-card__live">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Live
+                </a>
+              } @else {
+                <span class="project-card__status-chip" [class]="'is-' + project.status.toLowerCase().replace(' ', '-')">
+                  {{ project.status }}
+                </span>
+              }
+
+              @if (project.sourceUrl) {
+                <a [href]="project.sourceUrl" target="_blank" rel="noopener" class="project-card__icon-btn" aria-label="View source">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.1.39-1.99 1.03-2.69-.1-.26-.45-1.29.1-2.69 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.4.2 2.43.1 2.69.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+                </a>
+              }
+
+              <button
+                type="button"
+                class="project-card__icon-btn"
+                (click)="toggleExpanded(project.title)"
+                [attr.aria-label]="isExpanded(project.title) ? 'Collapse description' : 'Expand description'"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              </button>
+
+              <button type="button" class="project-card__details" (click)="openCaseStudy(project)">
+                Details
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+      } @empty {
+        <p class="proj-empty">No projects match "{{ query() }}" in this view. Try a different search or filter.</p>
+      }
+    </div>
+  </div>
+</section>
+
+@if (selectedProject(); as project) {
+  <div class="case-modal-backdrop" (click)="closeCaseStudy()">
+    <div class="case-modal card" (click)="$event.stopPropagation()">
+      <button type="button" class="case-modal__close" (click)="closeCaseStudy()" aria-label="Close">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      </button>
+
+      <div class="case-modal__scroll">
+        <div class="case-modal__meta">
+          <span class="case-modal__cat" [class]="'is-' + categorySlug(project.category)">{{ project.category }}</span>
+          <span class="case-modal__year">Released {{ project.year }}</span>
+        </div>
+
+        <h2 class="case-modal__title">{{ project.title }}</h2>
+
+        <div class="case-modal__image" [style.background]="project.image ? null : project.gradient">
+          @if (project.image) {
+            <img [src]="project.image" [alt]="project.title + ' preview'" class="case-modal__image-img" />
+          }
+          @if (project.isMiniApp) {
+            <span class="project-card__mini-badge">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><rect x="7" y="2" width="10" height="20" rx="2" stroke="currentColor" stroke-width="2"/><path d="M11 18h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              Mini App
+            </span>
+          }
+        </div>
+
+        <span class="case-modal__label">Project Overview &amp; Architecture</span>
+        <p class="case-modal__desc">{{ project.desc }}</p>
+
+        <span class="case-modal__label">Key Features &amp; Engineering Highlights:</span>
+        <ul class="case-modal__features">
+          @for (feature of project.keyFeatures; track feature) {
+            <li>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="m8.5 12 2.3 2.3L15.5 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>{{ feature }}</span>
+            </li>
+          }
+        </ul>
+
+        <span class="case-modal__label">Technologies Used</span>
+        <div class="case-modal__tags">
+          @for (tag of project.tags; track tag) {
+            <span>{{ tag }}</span>
+          }
+        </div>
+
+        <div class="case-modal__actions">
+          @if (project.demoUrl) {
+            <a [href]="project.demoUrl" target="_blank" rel="noopener" class="btn btn-primary">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Launch Live Platform
+            </a>
+          }
+          @if (project.sourceUrl) {
+            <a [href]="project.sourceUrl" target="_blank" rel="noopener" class="btn btn-ghost">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.1.39-1.99 1.03-2.69-.1-.26-.45-1.29.1-2.69 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.4.2 2.43.1 2.69.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+              GitHub
+            </a>
+          }
+          @if (!project.demoUrl && !project.sourceUrl) {
+            <span class="project-card__status-chip" [class]="'is-' + project.status.toLowerCase().replace(' ', '-')">{{ project.status }}</span>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+}

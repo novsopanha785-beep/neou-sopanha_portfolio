@@ -1,0 +1,45 @@
+@if (search.open()) {
+  <div class="palette-backdrop" (click)="backdropClick()">
+    <div class="palette card" (click)="$event.stopPropagation()">
+      <div class="palette__input-row">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input
+          #searchInput
+          type="text"
+          placeholder="Search sections, skills, projects..."
+          [value]="query()"
+          (input)="onQueryInput($any($event.target).value)"
+        />
+        <kbd>Esc</kbd>
+      </div>
+
+      <div class="palette__results">
+        @if (results().length === 0) {
+          <p class="palette__empty">No results for "{{ query() }}".</p>
+        }
+        @for (item of results(); track item.title; let i = $index) {
+          <button
+            type="button"
+            class="palette__item"
+            [class.is-active]="activeIndex() === i"
+            (mouseenter)="activeIndex.set(i)"
+            (click)="select(item)"
+          >
+            <span class="palette__item-type" [class]="'is-' + item.type.toLowerCase()">{{ item.type }}</span>
+            <span class="palette__item-copy">
+              <strong>{{ item.title }}</strong>
+              <small>{{ item.hint }}</small>
+            </span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        }
+      </div>
+
+      <div class="palette__foot">
+        <span><kbd>↑</kbd><kbd>↓</kbd> Navigate</span>
+        <span><kbd>Enter</kbd> Select</span>
+        <span><kbd>⌘K</kbd> Toggle</span>
+      </div>
+    </div>
+  </div>
+}

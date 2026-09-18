@@ -1,0 +1,23 @@
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <strong>Neou Sopanha</strong>
+      <span>Building Digital Experiences That Matter.</span>
+    </div>
+
+    <nav class="footer__links" aria-label="Footer">
+      @for (link of links; track link.id) {
+        <a [href]="'#' + link.id" (click)="goTo(link.id); $event.preventDefault()">{{ link.label }}</a>
+      }
+    </nav>
+
+    <div class="footer__meta">
+      <button type="button" class="footer__top" (click)="backToTop()">
+        Back to Top
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M6 11l6-6 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <span class="footer__divider">|</span>
+      <span>&#169; {{ year }}</span>
+    </div>
+  </div>
+</footer>

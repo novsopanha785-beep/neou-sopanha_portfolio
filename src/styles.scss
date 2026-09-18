@@ -1,0 +1,250 @@
+/* ==========================================================================
+   Design tokens
+   ========================================================================== */
+:root {
+  /* Surfaces */
+  --bg: #05070d;
+  --bg-soft: #070a12;
+  --bg-elevated: #0b0f1a;
+  --card: rgba(17, 24, 38, 0.55);
+  --card-solid: #0d1220;
+  --card-border: rgba(148, 163, 184, 0.14);
+  --card-border-hover: rgba(56, 189, 248, 0.4);
+
+  /* Chrome surfaces used by nav / overlays / floating widgets */
+  --nav-bg-1: rgba(5, 7, 13, 0.55);
+  --nav-bg-2: rgba(5, 7, 13, 0.82);
+  --surface-90: rgba(11, 15, 26, 0.9);
+  --backdrop: rgba(4, 6, 12, 0.7);
+  --code-text: #cbd5e1;
+  --bg-tint-1: rgba(79, 157, 255, 0.1);
+  --bg-tint-2: rgba(45, 212, 244, 0.08);
+
+  /* Text */
+  --text-1: #f4f7fb;
+  --text-2: #a7b2c4;
+  --text-3: #6b7688;
+
+  /* Accents */
+  --cyan: #2dd4f4;
+  --cyan-soft: #7ee6f9;
+  --blue: #4f9dff;
+  --violet: #9c8bff;
+  --green: #2dd4a7;
+  --amber: #f4b942;
+  --rose: #ef6b6b;
+
+  --grad-heading: linear-gradient(100deg, #2dd4f4 0%, #4f9dff 55%, #9c8bff 100%);
+  --grad-brand: linear-gradient(135deg, #2dd4f4, #4f9dff);
+
+  /* Rhythm */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --container: 1240px;
+  --nav-h: 76px;
+
+  --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, Consolas, monospace;
+}
+
+/* ==========================================================================
+   Light theme — toggled by adding `light-theme` class to <html>
+   ========================================================================== */
+html.light-theme {
+  --bg: #f4f6fb;
+  --bg-soft: #eef1f8;
+  --bg-elevated: #ffffff;
+  --card: rgba(255, 255, 255, 0.72);
+  --card-solid: #ffffff;
+  --card-border: rgba(15, 23, 42, 0.1);
+  --card-border-hover: rgba(37, 148, 199, 0.45);
+
+  --nav-bg-1: rgba(255, 255, 255, 0.6);
+  --nav-bg-2: rgba(255, 255, 255, 0.88);
+  --surface-90: rgba(255, 255, 255, 0.94);
+  --backdrop: rgba(15, 23, 42, 0.35);
+  --code-text: #1e293b;
+  --bg-tint-1: rgba(79, 157, 255, 0.08);
+  --bg-tint-2: rgba(14, 165, 190, 0.07);
+
+  --text-1: #0f172a;
+  --text-2: #475569;
+  --text-3: #7e8aa0;
+
+  --cyan-soft: #0e91a8;
+  --violet: #7c6ae8;
+}
+
+html.light-theme .btn-primary,
+html.light-theme .filters__btn.is-active,
+html.light-theme .nav__link.is-active {
+  color: #fff;
+}
+
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  background-image:
+    radial-gradient(60vw 40vh at 85% -5%, var(--bg-tint-1), transparent 60%),
+    radial-gradient(50vw 35vh at 8% 15%, var(--bg-tint-2), transparent 55%);
+  background-attachment: fixed;
+  color: var(--text-1);
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+h1, h2, h3, h4, p, ul, figure { margin: 0; }
+ul { padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+img { max-width: 100%; display: block; }
+
+::selection { background: rgba(45, 212, 244, 0.25); color: #fff; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #1c2436; border-radius: 8px; border: 2px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: #29344b; }
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+/* ==========================================================================
+   Shared layout utilities (used across page components)
+   ========================================================================== */
+/* Anchor targets for the single-page nav (navbar is sticky, so offset the
+   scroll landing spot by its height) */
+.anchor-target,
+#home {
+  scroll-margin-top: var(--nav-h);
+}
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.page-head {
+  max-width: 760px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  letter-spacing: 0.06em;
+  color: var(--cyan-soft);
+  background: rgba(45, 212, 244, 0.08);
+  border: 1px solid rgba(45, 212, 244, 0.25);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+
+.page-title {
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.grad-text {
+  background: var(--grad-heading);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page-sub {
+  color: var(--text-2);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.section {
+  padding: 88px 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 13px 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; pointer-events: none; }
+
+.btn-primary {
+  background: var(--grad-brand);
+  color: #04121c;
+  box-shadow: 0 10px 30px -12px rgba(45, 212, 244, 0.55);
+}
+.btn-primary:hover { box-shadow: 0 14px 34px -10px rgba(45, 212, 244, 0.7); }
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: var(--card-border);
+  color: var(--text-1);
+}
+.btn-ghost:hover { border-color: var(--card-border-hover); background: rgba(255, 255, 255, 0.04); }
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-2);
+  border: 1px solid var(--card-border);
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(45, 212, 167, 0.18);
+  flex-shrink: 0;
+}

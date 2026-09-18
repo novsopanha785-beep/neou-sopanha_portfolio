@@ -1,0 +1,140 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.filters__btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--card-border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-2);
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+
+  span {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  &:hover { border-color: var(--card-border-hover); color: var(--text-1); }
+
+  &.is-active {
+    background: var(--grad-brand);
+    color: #04121c;
+    border-color: transparent;
+    font-weight: 600;
+
+    span { background: rgba(4, 18, 28, 0.18); color: #04121c; }
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.skill-card {
+  padding: 24px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+
+  &:hover {
+    border-color: var(--card-border-hover);
+    transform: translateY(-3px);
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      display: block;
+    }
+  }
+
+  &__cat {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    color: var(--text-3);
+    border: 1px solid var(--card-border);
+    padding: 4px 9px;
+    border-radius: 999px;
+  }
+
+  h3 {
+    font-size: 1.08rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  p {
+    font-size: 0.83rem;
+    color: var(--text-2);
+    line-height: 1.55;
+    margin-bottom: 20px;
+    min-height: 40px;
+  }
+
+  &__foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    margin-bottom: 8px;
+
+    span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-2);
+    }
+
+    strong {
+      color: var(--cyan-soft);
+      font-family: var(--font-mono);
+    }
+  }
+
+  &__bar {
+    height: 5px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+
+    span {
+      display: block;
+      height: 100%;
+      background: var(--grad-brand);
+      border-radius: 999px;
+    }
+  }
+}
+
+@media (max-width: 1100px) { .skills-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .skills-grid { grid-template-columns: 1fr; } }

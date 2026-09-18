@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="760" viewBox="0 0 600 760">
+  <rect width="600" height="760" fill="#0d1220"/>
+  <rect x="24" y="24" width="552" height="712" fill="#f7f5ef" rx="6"/>
+  <rect x="24" y="24" width="552" height="712" fill="none" stroke="#1f2a44" stroke-width="6" rx="6"/>
+  <circle cx="300" cy="140" r="46" fill="#233" opacity="0.12"/>
+  <text x="300" y="150" font-family="serif" font-size="20" fill="#334" text-anchor="middle">CERT</text>
+  <text x="300" y="230" font-family="serif" font-size="22" fill="#111" text-anchor="middle">Certificate of Completion</text>
+  <text x="300" y="300" font-family="serif" font-size="15" fill="#333" text-anchor="middle">This is presented to</text>
+  <text x="300" y="345" font-family="serif" font-size="26" font-weight="700" fill="#111" text-anchor="middle">NEOU SOPANHA</text>
+  <line x1="120" y1="620" x2="480" y2="620" stroke="#334" stroke-width="1.5"/>
+  <text x="300" y="660" font-family="monospace" font-size="12" fill="#556" text-anchor="middle">Replace this file with your real scanned certificate</text>
+</svg>

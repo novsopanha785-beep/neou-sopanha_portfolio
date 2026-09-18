@@ -1,0 +1,52 @@
+<section class="section">
+  <div class="container">
+    <div class="page-head">
+      <span class="eyebrow">02 // Technical Arsenal</span>
+      <h1 class="page-title">
+        Skills &amp; <span class="grad-text">Architectural Competencies</span>
+      </h1>
+      <p class="page-sub">
+        {{ skills.length }} core technical competencies across full-stack web
+        development, backend frameworks, relational databases, and dev
+        toolchains.
+      </p>
+    </div>
+
+    <div class="filters">
+      @for (cat of categories; track cat.label) {
+        <button
+          type="button"
+          class="filters__btn"
+          [class.is-active]="activeCategory() === cat.label"
+          (click)="activeCategory.set(cat.label)"
+        >
+          {{ cat.label }}
+          <span>{{ cat.count }}</span>
+        </button>
+      }
+    </div>
+
+    <div class="skills-grid">
+      @for (skill of filteredSkills(); track skill.name) {
+        <article class="skill-card card">
+          <div class="skill-card__head">
+            <!-- <span class="skill-card__icon">{{ skill.icon }}</span> -->
+            <span class="skill-card__icon">
+              <img [src]="skill.icon" [alt]="skill.name + ' icon'" />
+            </span>
+            <span class="skill-card__cat">{{ skill.category }}</span>
+          </div>
+          <h3>{{ skill.name }}</h3>
+          <p>{{ skill.desc }}</p>
+          <div class="skill-card__foot">
+            <span><i class="dot"></i> {{ skill.level }}</span>
+            <strong>{{ skill.percent }}%</strong>
+          </div>
+          <div class="skill-card__bar">
+            <span [style.width.%]="skill.percent"></span>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,227 @@
+<section class="hero" id="home">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <span class="badge-pill hero__avail"
+        ><i class="dot"></i> Available for Opportunities</span
+      >
+
+      <h1 class="hero__title">
+        Building Digital
+        <span class="grad-text">Experiences That Matter.</span>
+      </h1>
+
+      <p class="hero__desc">
+        I'm <strong>Neou Sopanha</strong>, an MIS (Management Information
+        System) student and Frontend Web Developer focused on building modern,
+        scalable, and user-friendly web applications.
+      </p>
+
+      <div class="hero__meta">
+        <span class="badge-pill">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M12 22s7-7.3 7-12.5A7 7 0 0 0 5 9.5C5 14.7 12 22 12 22Z"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <circle
+              cx="12"
+              cy="9.5"
+              r="2.3"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+          Phnom Penh, Cambodia
+        </span>
+        <span class="badge-pill">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+            <path d="m4 6 8 5 8-5" stroke="currentColor" stroke-width="2" />
+            <rect
+              x="4"
+              y="6"
+              width="16"
+              height="12"
+              rx="1.5"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+          SETEC MIS
+        </span>
+      </div>
+
+      <div class="hero__actions">
+        <a href="#projects" class="btn btn-primary hero__cta">
+          View My Work
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M7 17 17 7M9 7h8v8"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+        <a href="assets/neou-sopanha-resume.pdf" download class="btn btn-ghost">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M12 3v12m0 0-4-4m4 4 4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          Download Resume
+        </a>
+        <button type="button" class="btn btn-ghost" (click)="copyEmail()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+            <rect
+              x="8"
+              y="8"
+              width="12"
+              height="12"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+            <path
+              d="M4 16V6a2 2 0 0 1 2-2h10"
+              stroke="currentColor"
+              stroke-width="2"
+            />
+          </svg>
+          Copy Email
+        </button>
+      </div>
+    </div>
+
+    <div class="hero__terminal card">
+      <div class="terminal__bar">
+        <div class="terminal__dots"><i></i><i></i><i></i></div>
+        <span class="terminal__path">Neou-Sopanha</span>
+        <div class="terminal__bar-actions">
+          <button type="button" class="is-active" aria-label="Code view">
+            &lt;/&gt;
+          </button>
+          <button type="button" aria-label="Preview">☺</button>
+        </div>
+      </div>
+
+      <div class="terminal__tabs">
+        <button
+          type="button"
+          [class.is-active]="activeTab() === 'config'"
+          (click)="activeTab.set('config')"
+        >
+          &lt;/&gt; sopanha.config.ts
+        </button>
+        <button
+          type="button"
+          [class.is-active]="activeTab() === 'architecture'"
+          (click)="activeTab.set('architecture')"
+        >
+          ⚙ architecture.sys
+        </button>
+        <button
+          type="button"
+          [class.is-active]="activeTab() === 'test'"
+          (click)="activeTab.set('test')"
+        >
+          &gt;_ test-suite.sh
+        </button>
+      </div>
+
+      <div class="terminal__body">
+        @if (activeTab() === "config") {
+          <pre
+            class="code"
+          ><span class="c-comment">// Developer Profile Configuration</span>
+<span class="c-kw">export const</span> <span class="c-fn">engineer</span> = {{ '{' }}
+  name: <span class="c-str">"Neou Sopanha"</span>,
+  institution: <span class="c-str">"SETEC INSTITUTE"</span>,
+  degree: <span class="c-str">"MIS (2024-2028)"</span>,
+  location: <span class="c-str">"Phnom Penh, Cambodia (UTC+7)"</span>,
+  coreStack: [
+    <span class="c-str">"Angular"</span>, <span class="c-str">"TypeScript"</span>, <span class="c-str">"CSS"</span>, <span class="c-str">"Html"</span>, <span class="c-str"></span><span class="c-str">"MySQL"</span>
+  ],
+  status: <span class="c-str">"INTERNSHIP_&#95;FREELANCE_READY"</span>,
+{{ '}' }};</pre>
+        }
+        @if (activeTab() === "architecture") {
+          <pre
+            class="code"
+          ><span class="c-comment">// System design priorities</span>
+<span class="c-kw">export const</span> <span class="c-fn">architecture</span> = {{ '{' }}
+  pattern: <span class="c-str">"Component-driven, modular Angular"</span>,
+  stateStrategy: <span class="c-str">"Signals + RxJS streams"</span>,
+  apiLayer: <span class="c-str">"REST via Laravel &amp; Spring Boot"</span>,
+  priorities: [
+    <span class="c-str">"DRY &amp; SOLID"</span>, <span class="c-str">"Sub-100ms API targets"</span>,
+    <span class="c-str">"Accessible by default"</span>
+  ],
+{{ '}' }};</pre>
+        }
+        @if (activeTab() === "test") {
+          <pre
+            class="code"
+          ><span class="c-comment">$ npm run test -- --coverage</span>
+<span class="c-fn">PASS</span>  src/app/pages/home/home.component.spec.ts
+<span class="c-fn">PASS</span>  src/app/pages/skills/skills.component.spec.ts
+<span class="c-fn">PASS</span>  src/app/pages/contact/contact.component.spec.ts
+
+<span class="c-comment">Test Suites: 3 passed, 3 total</span>
+<span class="c-comment">Coverage:    94.2% statements</span></pre>
+        }
+      </div>
+
+      <div class="terminal__status">
+        <span><i class="dot"></i> Active Node Telemetry</span>
+        <span class="terminal__status-right">UTF-8 <b>main*</b> 0 errors</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--  -->
+<section class="stack-strip">
+  <div class="container">
+    <p class="stack-strip__label">Core Toolchain &amp; Production Stack</p>
+    <div class="stack-strip__row">
+      @for (item of stack; track item.label) {
+        <div class="stack-chip">
+          <!-- <span class="stack-chip__icon">{{ item.icon }}</span> -->
+          <span class="stack-chip__icon">
+            <img [src]="item.icon" [alt]="item.label + ' icon'" />
+          </span>
+          <span>
+            <strong>{{ item.label }}</strong>
+            <small>{{ item.sub }}</small>
+          </span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<div id="about" class="anchor-target">
+  <app-about></app-about>
+</div>
+
+<div id="skills" class="anchor-target">
+  <app-skills></app-skills>
+</div>
+
+<div id="projects" class="anchor-target">
+  <app-projects></app-projects>
+</div>
+
+<div id="experience" class="anchor-target">
+  <app-experience></app-experience>
+</div>
+
+<div id="contact" class="anchor-target">
+  <app-contact></app-contact>
+</div>

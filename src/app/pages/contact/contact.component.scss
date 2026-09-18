@@ -1,0 +1,188 @@
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.85fr 1.3fr;
+  gap: 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+/* Left: Direct Communications */
+.contact-direct {
+  padding: 32px;
+
+  h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 12px; }
+
+  &__intro {
+    color: var(--text-2);
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  &__label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    color: var(--text-3);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  &__box {
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    margin-bottom: 14px;
+
+    &--location {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      strong { display: block; font-size: 0.9rem; }
+      small { color: var(--text-3); font-size: 0.78rem; }
+    }
+  }
+
+  &__pin {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    display: grid;
+    place-items: center;
+    color: var(--cyan-soft);
+    background: rgba(45, 212, 244, 0.1);
+    flex-shrink: 0;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  &__email {
+    font-family: var(--font-mono);
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--cyan-soft);
+    word-break: break-all;
+  }
+
+  &__copy {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--card-border);
+    background: transparent;
+    color: var(--text-2);
+    flex-shrink: 0;
+    transition: border-color 0.15s ease, color 0.15s ease;
+
+    &:hover { border-color: var(--card-border-hover); color: var(--cyan-soft); }
+  }
+
+  &__socials {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid var(--card-border);
+  }
+
+  &__social-row {
+    display: flex;
+    gap: 10px;
+
+    a {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--card-border);
+      color: var(--text-2);
+      transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+
+      &:hover { color: var(--cyan-soft); border-color: var(--card-border-hover); transform: translateY(-2px); }
+    }
+  }
+}
+
+/* Right: Send a Message form */
+.contact-form {
+  padding: 32px;
+
+  h2 { font-size: 1.3rem; font-weight: 700; margin-bottom: 22px; }
+}
+
+.contact-form__success {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--green);
+  background: rgba(45, 212, 167, 0.08);
+  border: 1px solid rgba(45, 212, 167, 0.25);
+  padding: 12px 14px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+}
+
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+
+  label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text-2);
+  }
+
+  input, textarea {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    padding: 12px 14px;
+    color: var(--text-1);
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    resize: vertical;
+
+    &::placeholder { color: var(--text-3); }
+    &:focus { outline: none; border-color: var(--cyan); }
+  }
+}
+
+.field__error {
+  font-size: 0.76rem;
+  color: var(--rose);
+}
+
+.contact-form__submit {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .contact-form__row { grid-template-columns: 1fr; }
+  .contact-form, .contact-direct { padding: 22px; }
+}
