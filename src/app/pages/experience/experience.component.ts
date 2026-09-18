@@ -41,16 +41,16 @@ export class ExperienceComponent {
       ],
       current: true,
     },
-    {
-      period: '2024 — Present',
-      title: 'Bachelor of IT Engineering',
-      org: 'Royal University of Phnom Penh (RUPP)',
-      type: 'Education',
-      points: [
-        'Core coursework in data structures, databases, software engineering, and networks.',
-        'Active contributor to student-led coding workshops and hackathons.',
-      ],
-    },
+    // {
+    //   period: '2024 — Present',
+    //   title: 'Bachelor of IT Engineering',
+    //   org: 'Royal University of Phnom Penh (RUPP)',
+    //   type: 'Education',
+    //   points: [
+    //     'Core coursework in data structures, databases, software engineering, and networks.',
+    //     'Active contributor to student-led coding workshops and hackathons.',
+    //   ],
+    // },
     {
       period: '2024',
       title: 'Full-Stack Web Development Certificate',
