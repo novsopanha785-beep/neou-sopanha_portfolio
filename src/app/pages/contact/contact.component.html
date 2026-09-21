@@ -2,10 +2,24 @@
   <div class="container">
     <div class="page-head">
       <span class="eyebrow">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2"/></svg>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+          <rect
+            x="3"
+            y="5"
+            width="18"
+            height="14"
+            rx="2"
+            stroke="currentColor"
+            stroke-width="2"
+          />
+          <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="2" />
+        </svg>
         05 // Get In Touch
       </span>
-      <h1 class="page-title">Have an idea? <span class="grad-text">Let's build something great.</span></h1>
+      <h1 class="page-title">
+        Have an idea?
+        <span class="grad-text">Let's build something great.</span>
+      </h1>
       <p class="page-sub">
         Open for internships, frontend web developer, and innovative freelance
         collaborations.
@@ -16,19 +30,49 @@
       <div class="card contact-direct">
         <h2>Direct Communications</h2>
         <p class="contact-direct__intro">
-          Feel free to send an email, message via Telegram, or connect on professional channels.
-          I respond quickly.
+          Feel free to send an email, message via Telegram, or connect on
+          professional channels. I respond quickly.
         </p>
 
         <div class="contact-direct__box">
           <span class="contact-direct__label">Primary Email</span>
           <div class="contact-direct__row">
-            <a [href]="'mailto:' + email" class="contact-direct__email">{{ email }}</a>
-            <button type="button" class="contact-direct__copy" (click)="copyEmail()" aria-label="Copy email">
+            <a [href]="'mailto:' + email" class="contact-direct__email">{{
+              email
+            }}</a>
+            <button
+              type="button"
+              class="contact-direct__copy"
+              (click)="copyEmail()"
+              aria-label="Copy email"
+            >
               @if (copied()) {
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="m5 13 4 4L19 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="m5 13 4 4L19 7"
+                    stroke="currentColor"
+                    stroke-width="2.2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
               } @else {
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="12" height="12" rx="2" stroke="currentColor" stroke-width="2"/><path d="M4 16V6a2 2 0 0 1 2-2h10" stroke="currentColor" stroke-width="2"/></svg>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+                  <rect
+                    x="8"
+                    y="8"
+                    width="12"
+                    height="12"
+                    rx="2"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M4 16V6a2 2 0 0 1 2-2h10"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                </svg>
               }
             </button>
           </div>
@@ -36,7 +80,20 @@
 
         <div class="contact-direct__box contact-direct__box--location">
           <span class="contact-direct__pin">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 22s7-7.3 7-12.5A7 7 0 0 0 5 9.5C5 14.7 12 22 12 22Z" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.3" stroke="currentColor" stroke-width="2"/></svg>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 22s7-7.3 7-12.5A7 7 0 0 0 5 9.5C5 14.7 12 22 12 22Z"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <circle
+                cx="12"
+                cy="9.5"
+                r="2.3"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
           </span>
           <span>
             <strong>Phnom Penh, Cambodia</strong>
@@ -46,7 +103,7 @@
 
         <div class="contact-direct__socials">
           <span class="contact-direct__label">Connect Across Platforms</span>
-          <div class="contact-direct__social-row">
+          <!-- <div class="contact-direct__social-row">
             <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.1.39-1.99 1.03-2.69-.1-.26-.45-1.29.1-2.69 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.4.2 2.43.1 2.69.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
             </a>
@@ -59,30 +116,128 @@
             <a href="https://www.facebook.com/share/19ZsEzbQwY/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V5.6c-.5-.07-2.3-.23-3.6-.23-3.6 0-5.4 2.2-5.4 5.2V13H4.5v4H8v7h4v-7h3.2l.8-4h-4v-1.9c0-1.15.3-2.1 2-2.1Z"/></svg>
             </a>
+          </div> -->
+
+          <div class="contact-direct__social-row">
+            <!-- Telegram -->
+            <a
+              href="https://t.me/nha_nhazzz"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Telegram"
+            >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21.9 4.3 18.7 20c-.24 1.06-.87 1.32-1.76.82l-4.86-3.58-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.95L18.3 6.5c.4-.36-.09-.56-.62-.2L6.5 13.4l-4.83-1.5c-1.05-.33-1.07-1.05.22-1.55L20.6 3.14c.87-.32 1.63.2 1.3 1.16Z"
+                />
+              </svg>
+            </a>
+
+            <!-- Facebook -->
+            <a
+              href="https://www.facebook.com/share/1QudsgD5FZ/?mibextid=wwXIfr"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M13.5 21v-8.2h2.8l.42-3.2H13.5V7.55c0-.93.26-1.56 1.6-1.56h1.72V3.13c-.3-.04-1.36-.13-2.58-.13-2.55 0-4.3 1.56-4.3 4.42V9.6H7.05v3.2h2.89V21h3.56Z"
+                />
+              </svg>
+            </a>
+
+            <!-- GitHub -->
+            <a
+              href="https://github.com/novsopanha785-beep"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.1.39-1.99 1.03-2.69-.1-.26-.45-1.29.1-2.69 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.4.2 2.43.1 2.69.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
+                />
+              </svg>
+            </a>
+
+            <!-- TikTok -->
+            <a
+              href="https://www.tiktok.com/@novsopanha07"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TikTok"
+            >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.9 2.9 0 0 1-2.9 2.9 2.9 2.9 0 1 1 2.9-2.9c0-.23-.02-.46-.05-.68V11.5a6.34 6.34 0 1 0 3.5 5.67V9.6a8.16 8.16 0 0 0 4.77 1.53V7.7a4.85 4.85 0 0 1-1-.01Z"
+                />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
 
-      <form class="card contact-form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <form
+        class="card contact-form"
+        [formGroup]="form"
+        (ngSubmit)="onSubmit()"
+        novalidate
+      >
         <h2>Send a Message</h2>
 
         @if (submitted()) {
           <div class="contact-form__success">
-            <i class="dot"></i> Thanks — your message has been sent. I'll reply soon.
+            <i class="dot"></i> Thanks — your message has been sent. I'll reply
+            soon.
           </div>
         }
 
         <div class="contact-form__row">
           <div class="field">
             <label for="name">Your Name *</label>
-            <input id="name" type="text" formControlName="name" placeholder="e.g. Sokha" />
+            <input
+              id="name"
+              type="text"
+              formControlName="name"
+              placeholder="e.g. Sokha"
+            />
             @if (f.name.invalid && f.name.touched) {
               <small class="field__error">Please enter your name.</small>
             }
           </div>
           <div class="field">
             <label for="email">Email Address</label>
-            <input id="email" type="email" formControlName="email" placeholder="sokha&#64;example.com" />
+            <input
+              id="email"
+              type="email"
+              formControlName="email"
+              placeholder="sokha&#64;example.com"
+            />
             @if (f.email.invalid && f.email.touched) {
               <small class="field__error">Enter a valid email address.</small>
             }
@@ -91,7 +246,12 @@
 
         <div class="field">
           <label for="subject">Subject / Topic</label>
-          <input id="subject" type="text" formControlName="subject" placeholder="Internship / Freelance Project / Inquiry" />
+          <input
+            id="subject"
+            type="text"
+            formControlName="subject"
+            placeholder="Internship / Freelance Project / Inquiry"
+          />
           @if (f.subject.invalid && f.subject.touched) {
             <small class="field__error">Please add a subject.</small>
           }
@@ -99,15 +259,33 @@
 
         <div class="field">
           <label for="message">Your Message *</label>
-          <textarea id="message" rows="5" formControlName="message" placeholder="Tell me about your project, timeline, or engineering opportunity..."></textarea>
+          <textarea
+            id="message"
+            rows="5"
+            formControlName="message"
+            placeholder="Tell me about your project, timeline, or engineering opportunity..."
+          ></textarea>
           @if (f.message.invalid && f.message.touched) {
-            <small class="field__error">Message should be at least 10 characters.</small>
+            <small class="field__error"
+              >Message should be at least 10 characters.</small
+            >
           }
         </div>
 
-        <button type="submit" class="btn btn-primary contact-form__submit" [disabled]="sending()">
-          {{ sending() ? 'Sending…' : 'Dispatch Message' }}
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="m3 11 18-8-8 18-2-8-8-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        <button
+          type="submit"
+          class="btn btn-primary contact-form__submit"
+          [disabled]="sending()"
+        >
+          {{ sending() ? "Sending…" : "Dispatch Message" }}
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+            <path
+              d="m3 11 18-8-8 18-2-8-8-2Z"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linejoin="round"
+            />
+          </svg>
         </button>
       </form>
     </div>

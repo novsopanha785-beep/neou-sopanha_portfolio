@@ -37,7 +37,7 @@ export class ChatWidgetComponent {
 
   readonly quickPrompts = [
     { icon: '⚡', label: "What is Sopanha's primary tech stack?" },
-    { icon: '🎓', label: 'Tell me about his RUPP background' },
+    { icon: '🎓', label: 'Tell me about his SETEC background' },
     { icon: '💬', label: 'How do I get in touch directly?' },
   ];
 
@@ -45,12 +45,12 @@ export class ChatWidgetComponent {
     {
       keywords: ['stack', 'tech', 'technology', 'language', 'framework'],
       answer:
-        "Sopanha's core stack is **Angular + TypeScript** on the frontend, and **Laravel, PHP, Java/Spring Boot, and Node.js** on the backend — with **MySQL and PostgreSQL** for data. Check the Skills section for the full breakdown.",
+        "Sopanha's core stack includes **Angular + TypeScript** on the frontend, with **Java** for backend development and **MySQL, Oracle, and MongoDB** for database management. Check the Skills section for the full breakdown.",
     },
     {
-      keywords: ['rupp', 'university', 'background', 'school', 'education', 'degree', 'study'],
+      keywords: ['setec', 'university', 'background', 'school', 'education', 'degree', 'study'],
       answer:
-        "He's an **IT Engineering** student at the **Royal University of Phnom Penh (RUPP)**, class of 2024–2028, alongside professional certifications from **ETEC Center**. See the About and Experience sections for details.",
+        "He's an **Management Information System (MIS)** student at the **SETEC INSTITUTE**, class of 2024-2028, See the About and Experience sections for details.",
     },
     {
       keywords: ['project', 'work', 'build', 'portfolio', 'app'],
@@ -60,12 +60,12 @@ export class ChatWidgetComponent {
     {
       keywords: ['certificate', 'certification', 'credential', 'honor'],
       answer:
-        'His verified certifications and academic transcripts from **RUPP** and **ETEC Center** are listed under **Certifications & Honors** on the Experience page.',
+        'His verified certifications and academic transcripts from **SETEC** are listed under **Certifications & Honors** on the Experience page.',
     },
     {
       keywords: ['contact', 'email', 'phone', 'hire', 'available', 'reach', 'telegram', 'call'],
       answer:
-        "**Neou Sopanha** is a Full-Stack Web Developer in Phnom Penh specializing in Angular, TypeScript, Laravel, and cloud REST APIs.\n\nHe is currently open for **Internships, Junior Engineering roles, and Freelance projects.**\n\nWould you like to chat with him directly on Telegram?",
+        "**Neou Sopanha** is a Full-Stack Web Developer in Phnom Penh specializing in Angular, TypeScript, and cloud REST APIs.\n\nHe is currently open for **Internships, Junior Engineering roles, and Freelance projects.**\n\nWould you like to chat with him directly on Telegram?",
       contactCard: true,
     },
   ];
@@ -78,7 +78,7 @@ export class ChatWidgetComponent {
     {
       from: 'bot',
       text:
-        "👋 Hi! I'm Sopanha's AI Portfolio Assistant. I can answer questions about his tech stack, RUPP IT Engineering background, featured builds, and certificates — or pass a message straight to him.",
+        "👋 Hi! I'm Sopanha's AI Portfolio Assistant. I can answer questions about his tech stack, SETEC INSTITUTE (MIS) background, featured builds, and certificates — or pass a message straight to him.",
     },
   ]);
 
