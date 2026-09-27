@@ -30,7 +30,7 @@
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="m21 21-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         <input
           type="text"
-          [placeholder]="'Search ' + projects.length + ' projects by title, tech (e.g. Laravel, Angular, KHQR)...'"
+          [placeholder]="'Search ' + projects.length + ' projects by title, tech (e.g. Angular, Portfolio, KHQR)...'"
           [value]="query()"
           (input)="query.set($any($event.target).value)"
         />
@@ -67,11 +67,11 @@
 
           <div
             class="project-card__cover"
-            [style.background]="project.image ? null : project.gradient"
+            [style.background]="isImagePath(project.gradient) ? null : project.gradient"
             (click)="openCaseStudy(project)"
           >
-            @if (project.image) {
-              <img [src]="project.image" [alt]="project.title + ' preview'" class="project-card__cover-img" />
+            @if (isImagePath(project.gradient)) {
+              <img [src]="project.gradient" [alt]="project.title + ' preview'" class="project-card__cover-img" />
             }            <span class="project-card__cat-badge">{{ project.category }}</span>
             @if (project.isMiniApp) {
               <span class="project-card__mini-badge">
@@ -122,11 +122,11 @@
                 </span>
               }
 
-              @if (project.sourceUrl) {
+              <!-- @if (project.sourceUrl) {
                 <a [href]="project.sourceUrl" target="_blank" rel="noopener" class="project-card__icon-btn" aria-label="View source">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.1.39-1.99 1.03-2.69-.1-.26-.45-1.29.1-2.69 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.4.2 2.43.1 2.69.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
                 </a>
-              }
+              } -->
 
               <button
                 type="button"
@@ -166,9 +166,9 @@
 
         <h2 class="case-modal__title">{{ project.title }}</h2>
 
-        <div class="case-modal__image" [style.background]="project.image ? null : project.gradient">
-          @if (project.image) {
-            <img [src]="project.image" [alt]="project.title + ' preview'" class="case-modal__image-img" />
+        <div class="case-modal__image" [style.background]="isImagePath(project.gradient) ? null : project.gradient">
+          @if (isImagePath(project.gradient)) {
+            <img [src]="project.gradient" [alt]="project.title + ' preview'" class="case-modal__image-img" />
           }
           @if (project.isMiniApp) {
             <span class="project-card__mini-badge">
@@ -205,12 +205,12 @@
               Launch Live Platform
             </a>
           }
-          @if (project.sourceUrl) {
+          <!-- @if (project.sourceUrl) {
             <a [href]="project.sourceUrl" target="_blank" rel="noopener" class="btn btn-ghost">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.1.39-1.99 1.03-2.69-.1-.26-.45-1.29.1-2.69 0 0 .84-.27 2.75 1.02a9.4 9.4 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.4.2 2.43.1 2.69.64.7 1.03 1.59 1.03 2.69 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
               GitHub
             </a>
-          }
+          } -->
           @if (!project.demoUrl && !project.sourceUrl) {
             <span class="project-card__status-chip" [class]="'is-' + project.status.toLowerCase().replace(' ', '-')">{{ project.status }}</span>
           }

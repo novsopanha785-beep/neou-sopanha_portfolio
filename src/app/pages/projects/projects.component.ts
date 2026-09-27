@@ -4,6 +4,7 @@ import { Component, HostListener, computed, signal } from '@angular/core';
 type ProjectCategory = 'Full Stack' | 'Frontend' | 'Mobile' | 'AI & UI/UX';
 type ProjectStatus = 'Live' | 'In Progress' | 'Archived';
 
+
 interface Project {
   title: string;
   subtitle: string;
@@ -53,25 +54,26 @@ export class ProjectsComponent {
     //   flagship: true,
     //   demoUrl: 'https://campay-demo.example.com',
     // },
-    // {
-    //   title: 'RUPP Course Hub',
-    //   subtitle: 'University Learning Management System',
-    //   desc: 'Student portal for course registration, grade tracking, and lecturer announcements used by 400+ IT Engineering students.',
-    //   tags: ['Angular', 'Spring Boot', 'PostgreSQL'],
-    //   keyFeatures: [
-    //     'Role-based dashboards for students, lecturers, and department admins',
-    //     'Automated grade computation with transcript-ready exports',
-    //     'Course capacity and registration windows enforced server-side',
-    //   ],
-    //   category: 'Full Stack',
-    //   status: 'Live',
-    //   year: 2025,
-    //   domain: 'course-hub.rupp.edu.kh',
-    //   gradient: 'linear-gradient(135deg, #9c8bff, #4f9dff)',
-    //   flagship: true,
-    //   demoUrl: 'https://course-hub-demo.example.com',
-    //   sourceUrl: 'https://github.com/neousopanha/rupp-course-hub',
-    // },
+    {
+      title: 'Portfolio',
+      subtitle: 'Neou Sopanha_Porfolio',
+      desc: 'A student portal designed for MIS students to register for courses, track academic grades, and receive announcements from lecturers. The system helps students manage their academic information through a simple and user-friendly interface.',
+      tags: ['Angular', 'TypeScript'],
+      keyFeatures: [
+        'Student dashboard for viewing courses, grades, and academic information',
+        'Course registration and subject selection for students',
+        'Grade viewing and academic progress tracking',
+        'Lecturer announcements and important course updates',
+      ],
+      category: 'Frontend',
+      status: 'Live',
+      year: 2026,
+      domain: 'Neou Sopanha — Full-Stack Web Developer',
+      gradient: 'assets/projects/portfolio.png',
+      flagship: true,
+      demoUrl: 'https://neou-sopanhaportfolio.vercel.app/',
+      sourceUrl: 'https://github.com/neousopanha/rupp-course-hub',
+    },
     {
       title: 'Telegram Micro-Shop Bot',
       subtitle: 'Next-Gen Telegram WebApp with KHQR Checkout',
@@ -87,7 +89,7 @@ export class ProjectsComponent {
       year: 2026,
       domain: 't.me/my_shop_bot',
       gradient: 'linear-gradient(135deg, #6f5bd6, #2dd4a7)',
-      flagship: true,
+      flagship: false,
       isMiniApp: true,
       demoUrl: 'https://t.me/my_shop_bot',
     },
@@ -102,29 +104,30 @@ export class ProjectsComponent {
         'Intelligent low-stock buffer alerts, barcode/SKU scanner search, and thermal receipt printing',
       ],
       category: 'Full Stack',
-      status: 'Live',
+      status: 'In Progress',
       year: 2026,
       domain: 'sme-pos.kh',
       gradient: 'linear-gradient(135deg, #f4b942, #ef6b6b)',
-      demoUrl: 'https://sme-pos-demo.example.com',
+      // demoUrl: 'https://sme-pos-demo.example.com',
       sourceUrl: 'https://github.com/neousopanha/sme-inventory-pos',
     },
     {
-      title: 'DevNotes',
-      subtitle: 'Offline-First Markdown Notes App',
-      desc: 'A markdown-first note-taking app with offline-first storage and instant full-text search across notebooks.',
-      tags: ['Angular', 'TypeScript', 'IndexedDB'],
+      title: 'E-Commerce Website',
+      subtitle: 'Modern Online Shopping Platform',
+      desc: 'A responsive e-commerce website developed as a school project using Angular and a REST API. The project allows users to browse products, view product details, search for products, and manage items in a shopping cart.',
+      tags: ['Angular', 'TypeScript', 'REST API'],
       keyFeatures: [
-        'Fully offline-capable — notes are readable and editable with zero connectivity',
-        'Instant full-text search across every notebook, powered by an in-browser index',
-        'Markdown live preview with keyboard-first navigation between notes',
+        'Product browsing with categories, product details, and responsive product cards',
+        'Shopping cart functionality for adding, removing, and managing products',
+        'REST API integration for retrieving and displaying product data',
+        'Product search functionality to help users quickly find products',
       ],
       category: 'Frontend',
-      status: 'Live',
-      year: 2025,
-      domain: 'devnotes.app',
-      gradient: 'linear-gradient(135deg, #2dd4a7, #2dd4f4)',
-      demoUrl: 'https://devnotes.example.com',
+      status: 'In Progress',
+      year: 2026,
+      domain: '',
+      gradient: 'assets/projects/ecomerce-website.png',
+      // demoUrl: 'https://devnotes.example.com',
       sourceUrl: 'https://github.com/neousopanha/devnotes',
     },
     {
@@ -145,20 +148,21 @@ export class ProjectsComponent {
       // Still in progress — no public links yet.
     },
     {
-      title: 'EventFlow',
-      subtitle: 'Seat-Map Ticketing & Check-In Platform',
-      desc: 'Event ticketing platform with seat-map selection, QR check-in, and an admin analytics dashboard.',
-      tags: ['Angular', 'Laravel', 'Tailwind CSS'],
+      title: 'Academic',
+      subtitle: 'Academic Portfolio',
+      desc: 'A personal academic portfolio website showcasing my skills, projects, education, and experience. Built with a clean and responsive design using HTML, CSS, and JavaScript.',
+      tags: ['Html', 'Css', 'javascript', 'Responsive Design'],
       keyFeatures: [
-        'Interactive seat-map picker with live seat-availability locking',
-        'QR-based check-in flow built for high-throughput event entrances',
-        'Admin analytics dashboard covering sales, attendance, and no-show rates',
+        'Responsive portfolio design for desktop and mobile devices', 
+        'Sections for personal information, skills, projects, education, and experience', 
+        'Interactive navigation and user interface using JavaScript',
       ],
       category: 'Frontend',
-      status: 'Archived',
-      year: 2024,
-      domain: 'eventflow.kh',
-      gradient: 'linear-gradient(135deg, #ef6b6b, #9c8bff)',
+      status: 'Live',
+      year: 2025,
+      domain: '',
+      gradient: 'assets/projects/academic-portfolio.png',
+      demoUrl: 'https://merry-tapioca-dfd2be.netlify.app/',
       sourceUrl: 'https://github.com/neousopanha/eventflow',
     },
     {
@@ -247,7 +251,10 @@ export class ProjectsComponent {
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/(^-|-$)/g, '');
   }
-
+  //
+  isImagePath(value: string): boolean {
+  return /\.(png|jpe?g|gif|webp|avif|svg)(\?.*)?$/i.test(value.trim());
+}
   // ---- Case study modal ----------------------------------------------
 
   selectedProject = signal<Project | null>(null);
