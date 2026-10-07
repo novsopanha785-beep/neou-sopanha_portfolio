@@ -24,6 +24,8 @@ interface Project {
   isMiniApp?: boolean;
   demoUrl?: string;
   sourceUrl?: string;
+  // add klun eng
+  targetId?: string;
 }
 
 @Component({
@@ -55,9 +57,11 @@ export class ProjectsComponent {
     //   demoUrl: 'https://campay-demo.example.com',
     // },
     {
+      targetId: 'portfolio',
       title: 'Portfolio',
       subtitle: 'Neou Sopanha_Porfolio',
-      desc: 'A student portal designed for MIS students to register for courses, track academic grades, and receive announcements from lecturers. The system helps students manage their academic information through a simple and user-friendly interface.',
+      // desc: 'A student portal designed for MIS students to register for courses, track academic grades, and receive announcements from lecturers. The system helps students manage their academic information through a simple and user-friendly interface.',
+      desc: 'A student portfolio showcasing my skills, projects, and experience as a Full-Stack Web Developer.',
       tags: ['Angular', 'TypeScript'],
       keyFeatures: [
         'Student dashboard for viewing courses, grades, and academic information',
@@ -74,43 +78,43 @@ export class ProjectsComponent {
       demoUrl: 'https://neou-sopanhaportfolio.vercel.app/',
       sourceUrl: 'https://github.com/neousopanha/rupp-course-hub',
     },
-    {
-      title: 'Telegram Micro-Shop Bot',
-      subtitle: 'Next-Gen Telegram WebApp with KHQR Checkout',
-      desc: 'A full-stack Telegram Mini App storefront featuring instant Telegram OAuth verification, product catalogs, cart state, and KHQR checkout.',
-      tags: ['Angular', 'Telegram SDK', 'Laravel', 'PostgreSQL', 'KHQR'],
-      keyFeatures: [
-        'One-tap Telegram OAuth — no separate signup or password required',
-        'Persistent cart state synced across the Telegram WebApp and bot chat',
-        'Native KHQR checkout flow with instant payment confirmation in-chat',
-      ],
-      category: 'Mobile',
-      status: 'Live',
-      year: 2026,
-      domain: 't.me/my_shop_bot',
-      gradient: 'linear-gradient(135deg, #6f5bd6, #2dd4a7)',
-      flagship: false,
-      isMiniApp: true,
-      demoUrl: 'https://t.me/my_shop_bot',
-    },
-    {
-      title: 'Cambodian SME Inventory & POS',
-      subtitle: 'Dual-Currency Micro-Retail POS & Inventory Engine',
-      desc: 'Micro-business Point of Sale & inventory system with real-time USD/KHR dual currency exchange, Bakong KHQR 2.0 payment generator, and thermal receipt printing.',
-      tags: ['React 19', 'TypeScript', 'Tailwind CSS', 'Vite', 'Bakong KHQR', 'Express'],
-      keyFeatures: [
-        'Real-time USD & KHR dual-currency pricing engine with automated exchange rate conversion',
-        'National Bakong KHQR 2.0 dynamic QR payment generator with audio confirmation triggers',
-        'Intelligent low-stock buffer alerts, barcode/SKU scanner search, and thermal receipt printing',
-      ],
-      category: 'Full Stack',
-      status: 'In Progress',
-      year: 2026,
-      domain: 'sme-pos.kh',
-      gradient: 'linear-gradient(135deg, #f4b942, #ef6b6b)',
-      // demoUrl: 'https://sme-pos-demo.example.com',
-      sourceUrl: 'https://github.com/neousopanha/sme-inventory-pos',
-    },
+    // {
+    //   title: 'Telegram Micro-Shop Bot',
+    //   subtitle: 'Next-Gen Telegram WebApp with KHQR Checkout',
+    //   desc: 'A full-stack Telegram Mini App storefront featuring instant Telegram OAuth verification, product catalogs, cart state, and KHQR checkout.',
+    //   tags: ['Angular', 'Telegram SDK', 'Laravel', 'PostgreSQL', 'KHQR'],
+    //   keyFeatures: [
+    //     'One-tap Telegram OAuth — no separate signup or password required',
+    //     'Persistent cart state synced across the Telegram WebApp and bot chat',
+    //     'Native KHQR checkout flow with instant payment confirmation in-chat',
+    //   ],
+    //   category: 'Mobile',
+    //   status: 'Live',
+    //   year: 2026,
+    //   domain: 't.me/my_shop_bot',
+    //   gradient: 'linear-gradient(135deg, #6f5bd6, #2dd4a7)',
+    //   flagship: false,
+    //   isMiniApp: true,
+    //   demoUrl: 'https://t.me/my_shop_bot',
+    // },
+    // {
+    //   title: 'Cambodian SME Inventory & POS',
+    //   subtitle: 'Dual-Currency Micro-Retail POS & Inventory Engine',
+    //   desc: 'Micro-business Point of Sale & inventory system with real-time USD/KHR dual currency exchange, Bakong KHQR 2.0 payment generator, and thermal receipt printing.',
+    //   tags: ['React 19', 'TypeScript', 'Tailwind CSS', 'Vite', 'Bakong KHQR', 'Express'],
+    //   keyFeatures: [
+    //     'Real-time USD & KHR dual-currency pricing engine with automated exchange rate conversion',
+    //     'National Bakong KHQR 2.0 dynamic QR payment generator with audio confirmation triggers',
+    //     'Intelligent low-stock buffer alerts, barcode/SKU scanner search, and thermal receipt printing',
+    //   ],
+    //   category: 'Full Stack',
+    //   status: 'In Progress',
+    //   year: 2026,
+    //   domain: 'sme-pos.kh',
+    //   gradient: 'linear-gradient(135deg, #f4b942, #ef6b6b)',
+    //   // demoUrl: 'https://sme-pos-demo.example.com',
+    //   sourceUrl: 'https://github.com/neousopanha/sme-inventory-pos',
+    // },
     {
       title: 'E-Commerce Website',
       subtitle: 'Modern Online Shopping Platform',
@@ -123,30 +127,30 @@ export class ProjectsComponent {
         'Product search functionality to help users quickly find products',
       ],
       category: 'Frontend',
-      status: 'In Progress',
+      status: 'Live',
       year: 2026,
       domain: '',
       gradient: 'assets/projects/ecomerce-website.png',
-      // demoUrl: 'https://devnotes.example.com',
+      demoUrl: 'https://panhashop.vercel.app/',
       sourceUrl: 'https://github.com/neousopanha/devnotes',
     },
-    {
-      title: 'Inventory Sync',
-      subtitle: 'Multi-Branch Retail Reconciliation Tool',
-      desc: 'Multi-branch inventory reconciliation tool with barcode scanning and low-stock alerts for a retail client.',
-      tags: ['Angular', 'Node.js', 'Express', 'MySQL'],
-      keyFeatures: [
-        'Cross-branch stock reconciliation with per-branch adjustment history',
-        'Barcode scanning support for fast intake and stock counts',
-        'Automated low-stock alerts routed to the right branch manager',
-      ],
-      category: 'Full Stack',
-      status: 'In Progress',
-      year: 2026,
-      domain: 'inventory-sync.internal',
-      gradient: 'linear-gradient(135deg, #4f9dff, #2dd4a7)',
-      // Still in progress — no public links yet.
-    },
+    // {
+    //   title: 'Inventory Sync',
+    //   subtitle: 'Multi-Branch Retail Reconciliation Tool',
+    //   desc: 'Multi-branch inventory reconciliation tool with barcode scanning and low-stock alerts for a retail client.',
+    //   tags: ['Angular', 'Node.js', 'Express', 'MySQL'],
+    //   keyFeatures: [
+    //     'Cross-branch stock reconciliation with per-branch adjustment history',
+    //     'Barcode scanning support for fast intake and stock counts',
+    //     'Automated low-stock alerts routed to the right branch manager',
+    //   ],
+    //   category: 'Full Stack',
+    //   status: 'In Progress',
+    //   year: 2026,
+    //   domain: 'inventory-sync.internal',
+    //   gradient: 'linear-gradient(135deg, #4f9dff, #2dd4a7)',
+    //   // Still in progress — no public links yet.
+    // },
     {
       title: 'Academic',
       subtitle: 'Academic Portfolio',
@@ -165,23 +169,23 @@ export class ProjectsComponent {
       demoUrl: 'https://merry-tapioca-dfd2be.netlify.app/',
       sourceUrl: 'https://github.com/neousopanha/eventflow',
     },
-    {
-      title: 'Sopanha AI Assistant',
-      subtitle: 'Portfolio AI Concierge & Telegram Relay',
-      desc: 'The floating assistant embedded on this very portfolio — a lightweight chat UI wired to a Telegram relay so no inquiry gets missed.',
-      tags: ['Angular', 'Node.js', 'Telegram Bot API'],
-      keyFeatures: [
-        'Keyword-matched FAQ engine covering tech stack, background, and projects',
-        'Every visitor message relayed straight to Telegram via a secure serverless function',
-        'Shared open state so the navbar, floating bubble, and quick-suggestion chips all drive one conversation',
-      ],
-      category: 'AI & UI/UX',
-      status: 'Live',
-      year: 2026,
-      domain: 'neousopanha.dev/ai',
-      gradient: 'linear-gradient(135deg, #9c8bff, #ef6b6b)',
-      sourceUrl: 'https://github.com/neousopanha/sopanha-ai-assistant',
-    },
+    // {
+    //   title: 'Sopanha AI Assistant',
+    //   subtitle: 'Portfolio AI Concierge & Telegram Relay',
+    //   desc: 'The floating assistant embedded on this very portfolio — a lightweight chat UI wired to a Telegram relay so no inquiry gets missed.',
+    //   tags: ['Angular', 'Node.js', 'Telegram Bot API'],
+    //   keyFeatures: [
+    //     'Keyword-matched FAQ engine covering tech stack, background, and projects',
+    //     'Every visitor message relayed straight to Telegram via a secure serverless function',
+    //     'Shared open state so the navbar, floating bubble, and quick-suggestion chips all drive one conversation',
+    //   ],
+    //   category: 'AI & UI/UX',
+    //   status: 'Live',
+    //   year: 2026,
+    //   domain: 'neousopanha.dev/ai',
+    //   gradient: 'linear-gradient(135deg, #9c8bff, #ef6b6b)',
+    //   sourceUrl: 'https://github.com/neousopanha/sopanha-ai-assistant',
+    // },
   ];
 
   readonly categories: { label: 'All' | ProjectCategory; count: number }[] = [

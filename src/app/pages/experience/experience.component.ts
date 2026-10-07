@@ -73,16 +73,16 @@ export class ExperienceComponent {
     //     'Delivered three capstone projects reviewed by industry mentors.',
     //   ],
     // },
-    {
-      period: '2023 — 2024',
-      title: 'Junior Web Developer (Internship)',
-      org: 'Local Tech Startup, Phnom Penh',
-      type: 'Work',
-      points: [
-        'Assisted in building internal admin dashboards with PHP and vanilla JS.',
-        'Fixed bugs, wrote documentation, and learned production Git workflows.',
-      ],
-    },
+    // {
+    //   period: '2023 — 2024',
+    //   title: 'Junior Web Developer (Internship)',
+    //   org: 'Local Tech Startup, Phnom Penh',
+    //   type: 'Work',
+    //   points: [
+    //     'Assisted in building internal admin dashboards with PHP and vanilla JS.',
+    //     'Fixed bugs, wrote documentation, and learned production Git workflows.',
+    //   ],
+    // },
   ];
 
   readonly certifications: Certification[] = [
